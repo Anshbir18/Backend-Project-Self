@@ -3,4 +3,16 @@ import 'dotenv/config'
 
 import connetDB from "./db/index.js";
 
-connetDB();
+connetDB()
+
+.then(()=>{
+    app.on("error",(err)=>{
+        console.log(`Error: ${err}`);
+    })
+    app.listen(process.env.PORT ||8000 , ()=>{
+        console.log(`Server is running on port ${process.env.PORT}`)
+    })
+})
+.catch((err)=>{
+    console.log("MONGO DB CONNECTION FAILED!!!!!", err);
+})
