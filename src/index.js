@@ -1,5 +1,5 @@
 import 'dotenv/config'
-
+import {app} from './app.js'
 
 import connetDB from "./db/index.js";
 
